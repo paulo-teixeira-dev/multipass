@@ -22,4 +22,5 @@ runcmd:
   - wget https://raw.githubusercontent.com/paulo-teixeira-dev/multipass/main/vm-hml/01-netcfg.yaml -O /etc/netplan/01-netcfg.yaml
   - chmod 644 /etc/netplan/01-netcfg.yaml
   - netplan apply
-
+  - wget https://raw.githubusercontent.com/paulo-teixeira-dev/multipass/main/default/60-cloudimg-settings.conf -O /etc/ssh/sshd_config.d
+  - service ssh restart
