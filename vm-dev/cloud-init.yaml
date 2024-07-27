@@ -1,0 +1,25 @@
+# cloud-init.yaml
+timezone: "America/Sao_Paulo"
+
+users:
+  - name: suporte
+    gecos: "Suporte"
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    groups: sudo
+    lock_passwd: false
+    passwd: $6$ltDyiSd0IakZxAS/$5Ojt9DQAo065orFIWYuA.5/MexrIJvJsP9Kmnku2BjMtVxGZs7LlHyQduEX0G2Hk7EZHTzdun6VJHUIsrdbAR/
+    
+packages:
+  - git
+  - nginx
+  - net-tools
+
+runcmd:
+  - systemctl enable nginx
+  - systemctl start nginx
+  - mkdir -p /etc/netplan
+  - wget https://raw.githubusercontent.com/paulo-teixeira-dev/multipass/main/vm-dev/01-netcfg.yaml -O /etc/netplan/01-netcfg.yaml
+  - chmod 644 /etc/netplan/01-netcfg.yaml
+  - netplan apply
+
