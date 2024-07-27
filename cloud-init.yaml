@@ -1,0 +1,22 @@
+# cloud-init.yaml
+timezone: "America/Sao_Paulo"
+
+users:
+  - name: dev
+    gecos: "Developer"
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    groups: sudo
+    lock_passwd: false
+    passwd: $6$yd2v85.aL5SfxFfH$gchA.mCEW7Mq7aqNKl2/eedj9i9jiJy8KCBtW391fo1UjG0efaqtE2JWdobVuNXHfGtuDONZwAWrsrZ706JX00
+    
+packages:
+  - git
+  - nginx
+  - net-tools
+
+runcmd:
+  - systemctl enable nginx
+  - systemctl start nginx
+  - wget http://example.com/path/to/your/network -O /etc/netplan/network
+
