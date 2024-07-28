@@ -8,7 +8,8 @@ users:
     shell: /bin/bash
     groups: sudo
     lock_passwd: false
-    passwd: $6$rounds=4096$63403J9SvlkRf67h$hh0IoyYMlHIrcV75t.FKdeFpnuJje7cLsAOrOPpHfMk81RWt.u717ExUH2CesgN9TcBOhHRiXzeu3daNt5R1r.
+    passwd: $6$rounds=4096$ripicZSfA8Mp8j0y$kMMB48ng2w4t/wWWatlmqsujp8ckhXt05P9HXFAjPoJ9QGE7Q2RDedvfAk5N8glaIBC5uDPWBiC3xhJPOFBdD0
+    #passwd: 
     
 packages:
   - git
